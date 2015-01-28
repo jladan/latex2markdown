@@ -1,5 +1,8 @@
 """
 A Very simple tool to convert latex documents to markdown documents
+
+usage: python3 latex2markdown.py < <infile> > <outfile>
+
 """
 import re
 from sys import stderr
@@ -76,12 +79,14 @@ def end_blocks(line):
     return line
 
 def process_line(line):
+    """ Do all the processing on a line
+    """
     line = start_blocks(line)
     line = end_blocks(line)
     line = prepend + convert_span_elements(line)
     return line
 
-# This next bit is to test the conversion as it builds
+# Just reading from stdin, then print to stdout
 from sys import stdin
 if __name__=="__main__":
     # First find the beginning of the document
