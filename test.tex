@@ -1,0 +1,60 @@
+\documentclass{article}
+
+
+\section{This shouldn't show}
+
+\begin{verbatim}
+Technically, all of this isn't even proper \latex
+\end{verbatim}
+
+\begin{document}
+
+% This is a comment!!!
+\section{First, a test of span elements}
+This is an \emph{emphasized} word, and another \textbf{bolded}, but \verb;this is a code segment;, and
+an image \includegraphics{image-file.png} should be after ``image''.
+
+\section{now a test of block elements}
+
+The following is an unordered list:
+
+\begin{itemize}
+    \item The first item % none of this will be printed
+    \item An item with some \emph{emphasized} text
+    \item And this item is going to have multiple paragraphs...
+
+        See? Does it work?
+    \item A final item
+\end{itemize}
+
+Then, the same list, but ordered:
+
+\begin{enumerate}
+    \item The first item
+    \item An item with some \emph{emphasized} text
+    \item And this item is going to have multiple paragraphs...
+
+        See? Does it work?
+    \item A final item
+\end{enumerate}
+
+We'll throw in a block of code,
+\begin{verbatim}
+def function_name(argument):
+    if argument:
+        #% We probably should show this comment, however
+        print(argument)
+    for x in a_list:
+        print(x)
+\end{verbatim}
+
+And finally, a block quote, just to see
+\begin{quote}
+And the great god Om spake unto Brutha,
+'pssst.'
+\end{quote}
+
+I hope that all worked just fine.
+\end{document}
+
+There also shouldn't be anything printed after the document ends...
