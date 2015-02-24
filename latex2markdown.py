@@ -14,6 +14,8 @@ span_substitutions = [
         (r'\\emph\{(.*?)\}', r'*\1*'),
         (r'\\textbf\{(.*?)\}', r'**\1**'),
         (r'\\verb;(.*?);', r'`\1`'),
+        (r'\\code\{(.*?)\}', r'`\1`'),                          # These two are
+        (r'\\gloss\{(.*?)\}', r'<span glossary="">\1</span>'),  # special purpose for opencs
         (r'\\includegraphics\{(.*?)\}', r'![](\1)'),
         # and to get rid of comments
         (r'%.*', r''),
