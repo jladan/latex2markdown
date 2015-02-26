@@ -10,6 +10,13 @@ from sys import stderr
 prepend = ''
 item_sub = ''
 
+def clear_state():
+    """ Clears any state that may be left over from unterminated blocks """
+    global prepend
+    global item_sub
+    prepend = ''
+    item_sub = ''
+
 span_substitutions = [
         (r'\\emph\{(.*?)\}', r'*\1*'),
         (r'\\textbf\{(.*?)\}', r'**\1**'),
@@ -28,7 +35,7 @@ def convert_span_elements(line):
         p = re.compile(f)
         line = p.sub(r, line)
     # and for the special case of list items...
-    p = re.compile(r'\\item')
+    p = re.compile(r'\\item\{?\}?')
     line = p.sub(item_sub, line)
     return line
 
